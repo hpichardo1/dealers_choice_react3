@@ -6,7 +6,9 @@ const PORT = 3000
 
 
 const DIST_PATH = path.join(__dirname, './dist');
+const PUBLIC_PATH = path.join(__dirname, './public');
 
+app.use(express.static(PUBLIC_PATH));
 app.use(express.static(DIST_PATH));
 app.use(express.json());
 
@@ -21,7 +23,7 @@ app.get('/cars', async(req, res, next)=>{
   }
 })
 
-app.get('/dealers', async(req, res, next)=>{
+app.get('/dealer', async(req, res, next)=>{
   try {
     const response = await Dealer.findAll()
     res.send(response)

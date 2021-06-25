@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+import axios from 'axios'
+import Header from './Header'
 
 
 
-export default class Main extends React.Component {
+class Main extends Component {
   constructor(){
     super()
     this.state = {
@@ -15,17 +17,13 @@ export default class Main extends React.Component {
   render(){
     return (
       <div id='main'>
-        <p> </p>
+        HELLO
       </div>
     )
   }
-
-
-
 }
-
 
 ReactDOM.render(
   <Main />,
-  document.getElementById('app')
+  document.querySelector('#app')
 )
