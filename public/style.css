@@ -1,0 +1,25 @@
+/*   NAVBAR */
+#navbar {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: cornsilk;
+}
+#navlinks {
+  display: flex;
+  flex-grow: 2;
+  justify-content: space-around
+}
+
+#logo {
+  width: 150px;
+  height: 150px;
+}
+
+/*   CONTAINER */
+
+#container {
+  width: 100vw;
+  height: 100vh;  
+  background-color: cornsilk;
+}
