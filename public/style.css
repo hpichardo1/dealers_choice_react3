@@ -23,15 +23,42 @@
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;  
+  height: 75vh;  
   background-color: cornsilk;
 }
 
 #dealers {
-  height: 20%;
-  width: 20%;
+  height: 15%;
+  width: 15%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border: red
+}
+
+#dealers > a {
+  border: 1px solid black;
+  padding: .5rem;
+}
+
+.row > td {
+  padding: 10px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+form {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+form > input, form > button {
+  margin: 1rem;
+} 
+
+input {
+  all: unset;
+  border-bottom: .5px solid slategray;
 }

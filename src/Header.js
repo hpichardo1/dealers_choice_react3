@@ -6,8 +6,8 @@ const Header = () => {
       <img src="car logo.jpeg" id="logo"></img>
       <section id='navlinks'>
           <a> HOME </a>
-          <a>Client Portfolio</a>
-          <a>Incoming Inventory</a>
+          <a>Clients</a>
+          <a>Exotics: 100 Park Ave New York, NY</a>
       </section>
       </div>
   )

@@ -15,7 +15,9 @@ app.use(express.json());
 
 app.get('/cars', async(req, res, next)=>{
   try {
-    const response = await Car.findAll()
+    const response = await Car.findAll({
+      include: [Client, Dealer]
+    })
     res.send(response)
   }
   catch(e){
@@ -25,7 +27,9 @@ app.get('/cars', async(req, res, next)=>{
 
 app.get('/dealer', async(req, res, next)=>{
   try {
-    const response = await Dealer.findAll()
+    const response = await Dealer.findAll({
+      include: [Car, Client]
+    })
     res.send(response)
   }
   catch(e){
@@ -40,6 +44,18 @@ app.get('/clients', async(req, res, next)=>{
   }
   catch(e){
     console.log(e)
+  }
+})
+
+app.delete('/:id', async (req, res) => {
+ 
+  try {
+    const { id } = req.params
+    await Car.destroy({ where: {id: id}})
+    res.sendStatus(200)
+  }
+  catch (err){
+    res.status(400).send(err)
   }
 })
 
