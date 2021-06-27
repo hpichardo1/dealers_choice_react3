@@ -19,4 +19,6 @@ const Table = () => {
   )
 }
 
+export default Table
+
 //insert array row data line 11-12
