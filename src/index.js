@@ -13,7 +13,7 @@ class Main extends Component {
       cars: [],
     }
     this.deleteSale = this.deleteSale.bind(this)
-    this.addSuperCar = this.addSuperCar(this)
+    this.submit = this.submit.bind(this)
   }
 async componentDidMount (){
   try {
@@ -41,9 +41,9 @@ async deleteSale(id){
     console.log('DELETE ERRRRORRR', err)
   }
 }
-async addSuperCar(text){
+async submit(brand, model, price, clientName){
   try {
-    const newCar = (await axios.post('/create', { text })).data
+    const newCar = (await axios.post('/create', { brand, model, price, clientName })).data
     this.setState({
       cars: [...this.state.cars, newCar]
     })
@@ -60,7 +60,7 @@ async addSuperCar(text){
       <div id='main'>
         <Header />
         <DealerOne cars={cars} deleteSale={this.deleteSale} />
-        <Form />
+        <Form submit={this.submit}  />
       </div>
     )
   }

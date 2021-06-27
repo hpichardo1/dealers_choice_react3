@@ -2,7 +2,7 @@ import React from 'react'
 
 const Row = (props) =>{
   const { carObj, deleteSale } = props
-  console.log(carObj.id)
+  
   return (
     <tr key={carObj.id} className='row' >
       <td>{carObj.brand}</td>
