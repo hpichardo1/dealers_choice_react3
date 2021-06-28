@@ -4,6 +4,7 @@ import axios from 'axios'
 import Header from './Header'
 import DealerOne from './DealerOne'
 import Form from './Form'
+import Client from './Client'
 
 
 class Main extends Component {
@@ -11,9 +12,11 @@ class Main extends Component {
     super()
     this.state = {
       cars: [],
+      selectedClient: {}
     }
     this.deleteSale = this.deleteSale.bind(this)
     this.submit = this.submit.bind(this)
+    this.selectClient = this.selectClient.bind(this)
   }
 async componentDidMount (){
   try {
@@ -26,6 +29,18 @@ async componentDidMount (){
     console.log('*****ISSUE WITH DIDMOUNT', err)
   }
 }
+async selectClient (id){
+  try {
+    const response = await axios.get(`/clients/${id}`)
+    const selectedClient = response.data
+    this.setState( { selectedClient: selectedClient } )
+  }
+  catch (err){
+    console.log('FAILURE SELECT CLIENT', err)
+  }
+}
+
+
 async deleteSale(id){
   try {
     await axios.delete(`/${id}`)
@@ -54,12 +69,13 @@ async submit(brand, model, price, clientName){
 }
 
   render(){
-    const { cars } = this.state
+    const { cars, selectedClient } = this.state
 
     return (
       <div id='main'>
         <Header />
-        <DealerOne cars={cars} deleteSale={this.deleteSale} />
+        <DealerOne selectClient={this.selectClient} cars={cars} deleteSale={this.deleteSale} />
+        <Client selectedClient={selectedClient} />
         <Form submit={this.submit}  />
       </div>
     )

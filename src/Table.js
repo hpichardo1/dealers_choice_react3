@@ -2,7 +2,7 @@ import React from 'react'
 import Rows from './Rows'
 
 const Table = (props) => {
-  const { cars, deleteSale } = props
+  const { cars, deleteSale, selectClient } = props
   return (
     <table id='table'>
       <tbody>
@@ -17,7 +17,7 @@ const Table = (props) => {
         {
           cars.map((carObj) => {
             return (
-              <Rows deleteSale={deleteSale} carObj={carObj} brand={carObj.brand} model={carObj.model} type={carObj.type} key={carObj.id} price={carObj.price} clientName={carObj.client.name} />
+              <Rows selectClient={selectClient} deleteSale={deleteSale} carObj={carObj} brand={carObj.brand} model={carObj.model} type={carObj.type} key={carObj.id} price={carObj.price} clientName={carObj.client.name} />
             )
           })
         }

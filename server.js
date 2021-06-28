@@ -47,6 +47,19 @@ app.get('/clients', async(req, res, next)=>{
   }
 })
 
+app.get('/clients/:id', async (req, res) => {
+  try {
+    const {id} = req.params
+    const response = await Client.findByPk(id, {
+      include: [Car]
+    })
+    res.send(response)
+  }
+  catch(err){
+    console.log(err)
+  }
+})
+
 app.delete('/:id', async (req, res) => {
  
   try {

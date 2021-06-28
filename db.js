@@ -37,11 +37,6 @@ const Car = db.define('car', {
 })
 
 const Client = db.define('client', {
-  id: {
-    type: UUID,
-    defaultValue: UUIDV4,
-    primaryKey: true
-  },
   name: STRING,
   age: INTEGER,
   email: {

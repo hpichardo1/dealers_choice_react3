@@ -23,7 +23,7 @@
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 75vh;  
+  height: 50vh;  
   background-color: cornsilk;
 }
 
@@ -61,4 +61,8 @@ form > input, form > button {
 input {
   all: unset;
   border-bottom: .5px solid slategray;
+}
+
+.clientname:hover {
+  cursor: pointer;
 }
