@@ -10,7 +10,7 @@ const Row = (props) =>{
       <td>{carObj.type}</td>
       <td>{carObj.price}</td>
       <td>
-        <a id='clientname' onClick={()=> selectClient(carObj.id)}>
+        <a id='clientname' onClick={()=> selectClient(carObj.client.id)}>
         {carObj.client.name}
           </a> 
       </td>
